@@ -73,7 +73,7 @@ class Cart extends Component {
           <div className="total clearfix">
             <h4>
               <span className="pull-left">Total</span>
-              <span className="pull-right">6,99<span> €</span></span>
+              <span className="pull-right">{this.props.total}<span> €</span></span>
             </h4>
           </div>
           <button className="col-xs-12 btn btn-warning">Buy</button>
@@ -86,7 +86,8 @@ class Cart extends Component {
 
 function mapStateToProps(state) {
   return {
-    cart: state.cart.cart
+    cart: state.cart.cart,
+    total: state.cart.total
   }
 }
 

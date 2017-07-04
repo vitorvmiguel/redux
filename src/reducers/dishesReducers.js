@@ -1,7 +1,8 @@
 export function dishesReducers(state={
-  dishes: [{	
+  dishes: [
+   {	
               id: "0",
-              imageURL: "images/1.jpg",
+              imageUrl: "http://honest-food.net/wp-content/uploads/2010/03/farro-pasta-320x280.jpg",
               dishName: "Amazing Dish",
               chefName: "Mighty Chef",
               averageRating: "4.8",
@@ -12,7 +13,7 @@ export function dishesReducers(state={
             },
             {	
               id: "1",
-              imageURL: "images/2.jpg",
+              imageUrl: "http://honest-food.net/wp-content/uploads/2010/03/farro-pasta-320x280.jpg",
               dishName: "Extraordinary Dish",
               chefName: "Holy Chef",
               averageRating: "4.7",
@@ -23,7 +24,7 @@ export function dishesReducers(state={
             },
             {	
               id: "2",
-              imageURL: "images/3.jpg",
+              imageUrl: "http://honest-food.net/wp-content/uploads/2010/03/farro-pasta-320x280.jpg",
               dishName: "Gorgeous Dish",
               chefName: "Super Chef",
               averageRating: "4.5",
@@ -31,11 +32,13 @@ export function dishesReducers(state={
               numberOfComments: "10",
               availablePortions: "21",
               price: "7.99"
-            }]
+            }
+  ]
 }, action) {
   switch(action.type) {
     case 'GET_DISHES':
       return {...state, dishes: [...state.dishes]}
+      //action.payload
     case 'POST_DISH':
       return {dishes:[...state.dishes, ...action.payload]}
     case 'DELETE_DISH':
