@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getDishes } from '../actions/dishesActions';
 
+import DishListItem from './DishListItem';
+import DishForm from './DishForm';
+
 class DishesList extends Component {
   componentDidMount() {
     this.props.getDishes();
@@ -10,30 +13,26 @@ class DishesList extends Component {
   render() {
     const dishesList = this.props.dishes.map(function(dish){
       return (
-        <li key={dish.id} className="col-sm-6 col-md-4 col-lg-4">
-          <div className="thumbnail">
-            <div className="caption">
-              <h4>
-                <a href={dish.id}>
-                  <span>{dish.dishName} </span>
-                  <span className="label label-default">
-                    <span>€ </span>
-                    <span>{dish.price}</span>
-                  </span>
-                  <br/>
-                  <small>by </small>
-                  <small className="chefName">{dish.chefName}</small>
-                </a>
-              </h4>
-            </div>
-          </div>
-        </li>
+        <DishListItem 
+          key={dish.id} 
+          id={dish.id} 
+          dishName={dish.dishName}
+          chefName={dish.chefName}
+          price={dish.price}
+          averageRating={dish.averageRating}
+          numberOfRatings={dish.numberOfRatings}
+          numberOfComments={dish.numberOfComments}
+          availablePortions={dish.availablePortions}
+          imageUrl={dish.imageUrl}/>
       )
     });
     return(
-      <ul className="row list-unstyled">
-        {dishesList}
-      </ul>
+      <div className="row">
+        <ul className="list-unstyled">
+          {dishesList}
+        </ul>
+        <DishForm />
+      </div>     
     );
   }
 }

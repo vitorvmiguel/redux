@@ -25,6 +25,10 @@ dt {
   margin-top: 20px;
 }
 
+textarea {
+  resize: none;
+}
+
 a:hover {
   text-decoration: none;
   color: #00A59C;
