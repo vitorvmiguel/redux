@@ -1,3 +1,9 @@
+export function getDishes(){
+  return {
+    type: 'GET_DISHES'
+  }
+}
+
 export function postDish(dish){
   return {
     type: 'POST_DISH',
