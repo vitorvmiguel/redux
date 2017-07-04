@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { findDOMNode } from 'react-dom';
-import { postDish } from '../actions/dishesActions'
+import { postDish, deleteDish } from '../actions/dishesActions'
 
 class DishForm extends Component {
   constructor(props) {
      super(props);
      this.handleSubmit = this.handleSubmit.bind(this);
+     this.handleDelete = this.handleDelete.bind(this);
   } 
   handleSubmit(e) {
     e.preventDefault();
@@ -25,7 +26,15 @@ class DishForm extends Component {
     }]
     this.props.postDish(dish);
   }
+  handleDelete(e) {
+    e.preventDefault();
+    let id = findDOMNode(this.refs.delete).value;
+    this.props.deleteDish(id);
+  }
   render() {
+    const dishList = this.props.dishes.map(function(dish){
+      return (<option key={dish.id}>{dish.id}</option>)
+    })
     return(
         <div className="col-sm-6">
           <div className="well">
@@ -74,13 +83,40 @@ class DishForm extends Component {
                 onClick={this.handleSubmit}>Submit</button>
             </form>
           </div>
+
+          <div className="well">
+            <h4>Delete a Dish</h4>
+            <form>
+              <div className="form-group">
+                <label htmlFor="delete">Select a Dish</label>
+                <select required className="form-control" id="delete" ref="delete">
+                  {dishList}
+                </select>
+              </div>
+              <button 
+                type="submit" 
+                className="btn btn-warning"
+                onClick={this.handleDelete}>Delete</button>
+            </form>
+          </div>
+
         </div>
     )
   }
 }
 
-function mapDispatchToProps(dispatch){
-  return bindActionCreators({postDish},dispatch);
+function mapStateToProps(state) {
+  return {
+    dishes: state.dishes.dishes
+  }
 }
 
-export default connect(null, mapDispatchToProps)(DishForm);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators(
+    {
+      postDish: postDish,
+      deleteDish: deleteDish
+    },dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DishForm);

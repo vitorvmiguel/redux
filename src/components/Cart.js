@@ -6,9 +6,6 @@ import { deleteFromCart, updateCart } from '../actions/cartActions';
 class Cart extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      showCheckout: false
-    }
   }
   
   handleDelete(id) {
@@ -33,18 +30,6 @@ class Cart extends Component {
     if(portions > 1) {
       this.props.updateCart(id, -1);
     }  
-  }
-
-  showCheckout() {
-    this.setState({
-      showCheckout: true
-    })
-  }
-
-  hideCheckout() {
-    this.setState({
-      showCheckout: false
-    })
   }
 
   render() {
