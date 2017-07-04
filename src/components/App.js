@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from './Navbar';
-import DishesList from './DishesList';
 import Footer from './Footer';
 
 class App extends Component {
@@ -8,7 +7,7 @@ class App extends Component {
     return (
       <div className="container">
         <Navbar />
-        <DishesList />
+          {this.props.children}
         <Footer />
       </div>
     );

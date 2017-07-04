@@ -43,7 +43,7 @@ export function dishesReducers(state={
 
       const indexToDelete = currentDishToDelete.findIndex(
         function(dish) {
-          return dish.id == action.payload;
+          return dish.id.toString() === action.payload;
         }
       )
       return {dishes: [...currentDishToDelete.slice(0, indexToDelete),

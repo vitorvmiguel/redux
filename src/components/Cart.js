@@ -4,10 +4,6 @@ import { bindActionCreators } from 'redux';
 import { deleteFromCart, updateCart } from '../actions/cartActions';
 
 class Cart extends Component {
-  constructor(props){
-    super(props);
-  }
-  
   handleDelete(id) {
     const currentCart = this.props.cart
 
