@@ -57,7 +57,7 @@ a:hover {
   display: inline-block;
 }
 
-.jumbotron {
+/*.jumbotron {
     background-color: #B4CABE;
     color: #fff;
     text-align: center;
@@ -67,7 +67,7 @@ a:hover {
     background-position: center;
     -webkit-background-size: cover;
     background-size: cover;
-}
+}*/
 
 .jumbotron a {
   background-color: #00A59C;
