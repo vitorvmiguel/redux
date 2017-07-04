@@ -1,4 +1,4 @@
-const cartReducers = function(state={cart:[]}, action) {
+export function cartReducers(state={cart:[]}, action) {
   switch(action.type){
     case 'ADD_TO_CART':
       return {cart: [...state.cart, ...action.payload]}
@@ -34,5 +34,3 @@ const cartReducers = function(state={cart:[]}, action) {
       return state;
   }
 }
-
-export default cartReducers;

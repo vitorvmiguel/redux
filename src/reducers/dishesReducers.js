@@ -1,4 +1,4 @@
-const dishesReducers = function(state={
+export function dishesReducers(state={
   dishes: [{	
               id: "0",
               imageURL: "images/1.jpg",
@@ -76,5 +76,3 @@ const dishesReducers = function(state={
       return state;
   }
 }
-
-export default dishesReducers;
