@@ -5,6 +5,7 @@ import { getDishes } from '../actions/dishesActions';
 
 import DishListItem from './DishListItem';
 import DishForm from './DishForm';
+import Cart from './Cart';
 
 class DishesList extends Component {
   componentDidMount() {
@@ -32,6 +33,7 @@ class DishesList extends Component {
           {dishesList}
         </ul>
         <DishForm />
+        <Cart />
       </div>     
     );
   }
